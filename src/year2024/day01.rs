@@ -1,9 +1,10 @@
-use std::{collections::HashMap, iter::zip};
+use std::collections::HashMap;
 
 use regex::Regex;
 
 use crate::utils::*;
 
+#[allow(unused)]
 pub fn main() {
     let year = "2024";
     let day = "1";
@@ -11,14 +12,13 @@ pub fn main() {
     let input = get_input(year, day).unwrap();
 
     let reg = Regex::new(r"\s+").unwrap();
-    let (mut left, mut right): (Vec<_>, Vec<_>) = input
+    let (left, right): (Vec<_>, Vec<_>) = input
         .lines()
         .map(|line| {
             let mut line_iter = reg.split(line).map(|val| val.parse::<i64>().unwrap());
             (line_iter.next().unwrap(), line_iter.next().unwrap())
         })
         .unzip();
-
 
     // LEVEL 1
     /*

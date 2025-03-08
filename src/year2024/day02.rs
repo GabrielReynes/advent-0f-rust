@@ -3,6 +3,7 @@ use crate::utils::*;
 const YEAR: &str = "2024";
 const DAY: &str = "2";
 
+#[allow(unused)]
 pub fn main() {
     let input = get_input(YEAR, DAY).unwrap();
 
@@ -22,7 +23,7 @@ fn is_safe(data: impl Iterator<Item = i32>) -> bool {
     for (ix, val) in data.enumerate() {
         let diff = val - last_val;
         let diff_abs = diff.abs();
-        if ((ix > 0 && (diff_abs < 1 || diff_abs > 3)) || (ix > 1 && (diff ^ last_diff) < 0)) {
+        if (ix > 0 && (diff_abs < 1 || diff_abs > 3)) || (ix > 1 && (diff ^ last_diff) < 0) {
             return false;
         }
         last_diff = diff;

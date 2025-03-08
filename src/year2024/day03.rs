@@ -18,6 +18,7 @@ struct InstrRanges {
     ranges: Vec<Range<usize>>,
 }
 
+#[allow(unused)]
 pub fn main() {
     let input = get_input(YEAR, DAY).unwrap();
 
